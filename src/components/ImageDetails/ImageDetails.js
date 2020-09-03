@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import Form from "react-bootstrap/Form";
 import axios from "axios";
 import "./ImageDetails.css";
 
@@ -10,7 +9,7 @@ export default function ImageDetails({ loadMap, suggestedTags, imageId }) {
   const [tags, setTags] = useState([]);
   const [category, setCategory] = useState("");
   const [categories, setCategories] = useState([]);
-  const [place, setPlace] = useState("");
+  const [place, setPlace] = useState(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const handleSubmit = async () => {
     const res = await axios
@@ -30,7 +29,7 @@ export default function ImageDetails({ loadMap, suggestedTags, imageId }) {
       setDescription("");
       setTags([]);
       setCategory("");
-      setPlace("");
+      // setPlace("");
       setIsSubmitted(true);
     }
   };
@@ -40,7 +39,7 @@ export default function ImageDetails({ loadMap, suggestedTags, imageId }) {
     setDescription("");
     setTags([]);
     setCategory("");
-    setPlace("");
+    // setPlace("");
   };
 
   useEffect(() => {
@@ -53,7 +52,7 @@ export default function ImageDetails({ loadMap, suggestedTags, imageId }) {
 
   useEffect(() => {
     initPlaceAPI();
-  }, [loadMap]);
+  }, []);
 
   // initialize the google place autocomplete
   const initPlaceAPI = () => {
@@ -65,7 +64,7 @@ export default function ImageDetails({ loadMap, suggestedTags, imageId }) {
       "place_changed",
       function () {
         let placeOutput = autocomplete.getPlace();
-        setPlace(placeOutput.formatted_address);
+        setPlace({ address: placeOutput.formatted_address });
       }
     );
   };
@@ -123,7 +122,7 @@ export default function ImageDetails({ loadMap, suggestedTags, imageId }) {
             <br />
             <input
               ref={placeInputRef}
-              value={place}
+              value={place ? place.address : place}
               name="location"
               type="text"
               required
@@ -158,9 +157,8 @@ export default function ImageDetails({ loadMap, suggestedTags, imageId }) {
             placeholder="Voeg tags toe"
           />
 
-          <div>
+          <div className="suggested-tags">
             <hr />
-
             <ul className="tags">
               {suggestedTags.map((tag, index) => (
                 <li key={index} className="tag">
@@ -193,7 +191,12 @@ export default function ImageDetails({ loadMap, suggestedTags, imageId }) {
         <br />
         <div>
           {isSubmitted ? (
-            <span className="align-left submit-button">Submitted</span>
+            <span
+              style={{ background: "green" }}
+              className="align-left submit-button"
+            >
+              submitted
+            </span>
           ) : (
             <span className="align-left submit-button" onClick={handleSubmit}>
               Submit

@@ -11,8 +11,6 @@ const DropZone = () => {
 
   const [selectedFiles, setSelectedFiles] = useState([]);
   const [validFiles, setValidFiles] = useState([]);
-  const [unsupportedFiles, setUnsupportedFiles] = useState([]);
-  const [errorMessage, setErrorMessage] = useState("");
   const [image, setImage] = useState("");
   const [isImageClicked, setImageClicked] = useState(false);
   const [loadMap, setLoadMap] = useState(false);
@@ -29,7 +27,6 @@ const DropZone = () => {
     }, []);
     setValidFiles([...filteredArr]);
   }, [selectedFiles]);
-
   const preventDefault = (e) => {
     e.preventDefault();
     // e.stopPropagation();
@@ -77,8 +74,6 @@ const DropZone = () => {
       } else {
         files[i]["invalid"] = true;
         setSelectedFiles((prevArray) => [...prevArray, files[i]]);
-        setErrorMessage("File type not permitted");
-        setUnsupportedFiles((prevArray) => [...prevArray, files[i]]);
       }
     }
   };
@@ -109,7 +104,7 @@ const DropZone = () => {
       callback();
     } else {
       const googleMapScript = document.createElement("script");
-      googleMapScript.src = `https://maps.googleapis.com/maps/api/js?key=${GOOGLE_MAP_API_KEY}&libraries=places`;
+      googleMapScript.src = `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_KEY}&libraries=places`;
       window.document.body.appendChild(googleMapScript);
       googleMapScript.addEventListener("load", callback);
     }
@@ -154,7 +149,7 @@ const DropZone = () => {
       <div className="split-left left">
         <div className="headline">
           <img src={logo} alt="logo" className="img-responsive align-left" />
-          <span className="align-right">Hulp nodig?</span>
+          <span className="align-right help-text">Hulp nodig?</span>
 
           <div style={{ clear: "both" }}></div>
         </div>

@@ -32,11 +32,6 @@ h4 {
   margin-top: 10px;
 }
 
-hr {
-  color: #d2c5c5;
-  font-size: 0.5em;
-}
-
 .tags-input input {
   flex: 1;
   border: none;
@@ -46,7 +41,7 @@ hr {
 .tags {
   display: flex;
   flex-wrap: wrap;
-  padding: 0;
+  padding-left: 10px;
 }
 
 .tag {
@@ -123,6 +118,27 @@ input[type="text"] {
 
 @media screen and (max-width: 567px) {
   .tags-input {
-    width: calc(100vw - 32px);
+    width: 100%;
+  }
+  input {
+    font-size: 10px;
+  }
+  #tag-input-form {
+    font-size: 10px;
+  }
+  h4 {
+    width: 100%;
+  }
+  .suggested-tags {
+    width: 100%;
+  }
+  .tag {
+    height: 40%;
+  }
+  .tag-title {
+    font-size: 6px;
+  }
+  .submit-button {
+    font-size: 8px;
   }
 }

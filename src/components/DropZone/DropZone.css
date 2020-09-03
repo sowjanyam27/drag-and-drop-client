@@ -1,0 +1,107 @@
+.file-input {
+  display: none;
+}
+
+.split-left {
+  height: 100%;
+  width: 63%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.split-right {
+  height: 100%;
+  width: 37%;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 30px;
+}
+
+/* Control the left side */
+.left {
+  left: 0;
+  background-color: #1d1c1c;
+  color: grey;
+}
+
+.headline {
+  margin-left: 70px;
+  margin-top: 20px;
+  margin-right: 40px;
+}
+
+.image-box {
+  margin-left: 70px;
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  grid-gap: 30px;
+}
+/* Control the right side */
+.right {
+  right: 0;
+  background-color: whitesmoke;
+}
+
+.align-left {
+  float: left;
+}
+
+.align-right {
+  float: right;
+}
+
+.file-img {
+  width: 330px;
+  height: 30vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.file-img-active {
+  border: 2px solid red;
+}
+
+/* Dropzone */
+.dropzone {
+  width: 200px;
+  height: 30vh;
+  border: 1px dashed #d9d3e2;
+
+  outline: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dropzone-active {
+  background-color: #f1e2ff;
+  border: 2px solid #2fd7b5;
+}
+
+.dropzone-content {
+  align-self: center;
+  padding-top: 30px;
+  font-size: 24px;
+}
+
+.circle {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 35%;
+  width: 30px;
+  height: 30px;
+  background: red;
+  border-radius: 50%;
+  font-size: 20px;
+  text-align: center;
+}
+.error {
+  color: red;
+}

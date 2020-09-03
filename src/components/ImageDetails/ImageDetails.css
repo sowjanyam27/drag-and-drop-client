@@ -1,0 +1,128 @@
+@import url("https://fonts.googleapis.com/css?family=Overpass");
+
+.image-details {
+  padding-left: 30px;
+  padding-right: 15%;
+}
+
+.align-left {
+  float: left;
+}
+
+.align-right {
+  float: right;
+}
+
+.circle {
+  width: 30px;
+  height: 30px;
+}
+
+h4 {
+  color: red;
+}
+.tags-input {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  min-height: 48px;
+  border: 1px solid #d2c5c5;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+hr {
+  color: #d2c5c5;
+  font-size: 0.5em;
+}
+
+.tags-input input {
+  flex: 1;
+  border: none;
+  height: 46px;
+  font-size: 14px;
+}
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+}
+
+.tag {
+  width: auto;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: red;
+  padding: 0 8px;
+  font-size: 14px;
+  list-style: none;
+  border-radius: 6px;
+  border: 1px solid red;
+  margin: 0 8px 8px 0;
+}
+
+.tag-title {
+  margin-top: 3px;
+}
+.tag-close-icon {
+  display: block;
+  width: 16px;
+  height: 16px;
+  line-height: 16px;
+  text-align: center;
+  font-size: 14px;
+  background: #fff;
+  cursor: pointer;
+}
+
+label {
+  font-size: 0.8em;
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+#description {
+  height: 70px;
+}
+
+#tag-input-form {
+  border-style: none;
+}
+
+#category {
+  width: 100%;
+  padding: 5px;
+  height: 30px;
+  display: inline-block;
+  margin-top: 10px;
+  border: 1px solid #d2c5c5;
+  border-radius: 5px;
+}
+
+/* Full-width input fields */
+input[type="text"] {
+  width: 100%;
+  padding: 5px;
+  height: 30px;
+  margin: 10px 0 10px 0;
+  display: inline-block;
+  border: 1px solid #d2c5c5;
+  border-radius: 5px;
+}
+
+.submit-button {
+  margin-top: 20px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid grey;
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 567px) {
+  .tags-input {
+    width: calc(100vw - 32px);
+  }
+}

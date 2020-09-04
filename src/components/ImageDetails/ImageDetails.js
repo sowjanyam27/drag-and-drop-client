@@ -8,7 +8,7 @@ export default function ImageDetails({
   loadMap,
   suggestedTags,
   imageId,
-  cancel,
+  clear,
 }) {
   const placeInputRef = useRef(null);
   const [title, setTitle] = useState("");
@@ -18,6 +18,7 @@ export default function ImageDetails({
   const [categories, setCategories] = useState([]);
   const [place, setPlace] = useState(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
+
   const handleSubmit = async () => {
     const res = await axios
       .post(`${apiUrl}/image`, {
@@ -38,6 +39,7 @@ export default function ImageDetails({
       setCategory("");
       // setPlace("");
       setIsSubmitted(true);
+      clear(true);
     }
   };
 
@@ -47,7 +49,7 @@ export default function ImageDetails({
     setTags([]);
     setCategory("");
     // setPlace("");
-    cancel(true);
+    clear(true);
   };
 
   useEffect(() => {

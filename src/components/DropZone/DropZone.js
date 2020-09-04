@@ -201,16 +201,16 @@ const DropZone = () => {
         </div>
       </div>
 
-      <div className="split-right right">
-        {isImageClicked ? (
+      {isImageClicked ? (
+        <div className="split-right right">
           <ImageDetails
             loadMap={loadMap}
             suggestedTags={suggestedTags}
             imageId={imageId}
-            cancel={cancelHandler}
+            clear={cancelHandler}
           />
-        ) : null}
-      </div>
+        </div>
+      ) : null}
       <br style={{ clear: "both" }} />
     </div>
   );

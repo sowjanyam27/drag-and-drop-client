@@ -1,2 +1,2 @@
-export const apiUrl = "http://localhost:4000";
-//"https://drag-and-drop-project.herokuapp.com";
+export const apiUrl = "https://drag-and-drop-project.herokuapp.com";
+// "http://localhost:4000";

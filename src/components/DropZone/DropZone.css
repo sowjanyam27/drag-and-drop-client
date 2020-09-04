@@ -8,7 +8,7 @@
   position: absolute;
   z-index: 1;
   top: 0;
-  overflow-x: auto;
+  overflow-x: hidden;
   padding-top: 20px;
 }
 
@@ -58,7 +58,8 @@
 
 .help-text {
   margin-top: 10px;
-  margin-right: 10px;
+  margin-right: 450px;
+  font-size: 0.9em;
 }
 
 .file-img {
@@ -112,13 +113,6 @@
 }
 
 @media screen and (max-width: 567px) {
-  /*   .split-left {
-    width: 55%;
-  }
-  .split-right {
-    width: 45%;
-  } */
-
   .split-left {
     width: 100%;
   }
@@ -141,5 +135,10 @@
   .file-img {
     width: 80%;
     height: 25vh;
+  }
+
+  .help-text {
+    margin-top: 10px;
+    margin-right: 25px;
   }
 }

@@ -73,6 +73,12 @@ h4 {
   cursor: pointer;
 }
 
+::placeholder {
+  color: grey;
+  opacity: 0.5; /* Firefox */
+  font-weight: 500;
+}
+
 label {
   font-size: 0.8em;
   font-weight: bold;

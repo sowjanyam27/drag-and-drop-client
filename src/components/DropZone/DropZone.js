@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import axios from "axios";
 import logo from "../../Images/logo.png";
+import { apiUrl } from "../../config/constants";
 
 import "./DropZone.css";
 import ImageDetails from "../ImageDetails/ImageDetails";

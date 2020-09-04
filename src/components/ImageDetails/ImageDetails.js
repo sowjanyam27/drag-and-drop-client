@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import "./ImageDetails.css";
+import { apiUrl } from "../../config/constants";
 
 export default function ImageDetails({ loadMap, suggestedTags, imageId }) {
   const placeInputRef = useRef(null);

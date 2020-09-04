@@ -2,8 +2,14 @@ import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import "./ImageDetails.css";
 import { apiUrl } from "../../config/constants";
+import ToolTip from "../ToolTip";
 
-export default function ImageDetails({ loadMap, suggestedTags, imageId }) {
+export default function ImageDetails({
+  loadMap,
+  suggestedTags,
+  imageId,
+  cancel,
+}) {
   const placeInputRef = useRef(null);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -41,6 +47,7 @@ export default function ImageDetails({ loadMap, suggestedTags, imageId }) {
     setTags([]);
     setCategory("");
     // setPlace("");
+    cancel(true);
   };
 
   useEffect(() => {
@@ -91,7 +98,9 @@ export default function ImageDetails({ loadMap, suggestedTags, imageId }) {
       <form>
         <label htmlFor="title">
           <span className="align-left">Titel</span>
-          <span className=" align-right">?</span>
+          <span className=" align-right">
+            <ToolTip text="Title of the picture" />
+          </span>
         </label>{" "}
         <br />
         <input
@@ -103,7 +112,12 @@ export default function ImageDetails({ loadMap, suggestedTags, imageId }) {
           placeholder="Vul een passende titel in voor deze foto"
         />
         <br />
-        <label htmlFor="description">Gebruikersnaam</label>
+        <label htmlFor="description">
+          <span className="align-left">Gebruikersnaam</span>
+          <span className=" align-right">
+            <ToolTip text="Description of the picture" />
+          </span>
+        </label>
         <br />
         <input
           value={description}
@@ -119,7 +133,12 @@ export default function ImageDetails({ loadMap, suggestedTags, imageId }) {
           <div>Loading...</div>
         ) : (
           <div>
-            <label htmlFor="location">Locatie</label>
+            <label htmlFor="location">
+              <span className="align-left">Locatie</span>
+              <span className=" align-right">
+                <ToolTip text="Location of the picture" />
+              </span>
+            </label>
             <br />
             <input
               ref={placeInputRef}
@@ -132,7 +151,12 @@ export default function ImageDetails({ loadMap, suggestedTags, imageId }) {
             <br />
           </div>
         )}
-        <label htmlFor="tags">Tags</label>
+        <label htmlFor="tags">
+          <span className="align-left">Tags</span>
+          <span className=" align-right">
+            <ToolTip text="Tags of the picture" />
+          </span>
+        </label>
         <br />
         <div className="tags-input">
           <ul className="tags">
@@ -175,7 +199,12 @@ export default function ImageDetails({ loadMap, suggestedTags, imageId }) {
             </ul>
           </div>
         </div>
-        <label htmlFor="category">Category</label>
+        <label htmlFor="category">
+          <span className="align-left">Categorie</span>
+          <span className=" align-right">
+            <ToolTip text="Category of the picture" />
+          </span>
+        </label>
         <br />
         <select
           name="category"
@@ -203,12 +232,11 @@ export default function ImageDetails({ loadMap, suggestedTags, imageId }) {
               Submit
             </span>
           )}
-
-          <span className="align-right submit-button" onClick={cancelHandler}>
-            Anuuleren
-          </span>
         </div>
       </form>
+      <span className="align-right submit-button" onClick={cancelHandler}>
+        Anuuleren
+      </span>
     </div>
   );
 }

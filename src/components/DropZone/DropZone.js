@@ -16,6 +16,7 @@ const DropZone = () => {
   const [loadMap, setLoadMap] = useState(false);
   const [suggestedTags, setSuggestedTags] = useState([]);
   const [imageId, setImageId] = useState("");
+
   useEffect(() => {
     let filteredArr = selectedFiles.reduce((acc, current) => {
       const x = acc.find((item) => item.name === current.name);
@@ -60,6 +61,11 @@ const DropZone = () => {
   const filesSelected = () => {
     if (fileInputRef.current.files.length) {
       handleFiles(fileInputRef.current.files);
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        setImage(e.target.result);
+      };
+      reader.readAsDataURL(fileInputRef.current.files[0]);
     }
   };
 
@@ -96,6 +102,12 @@ const DropZone = () => {
     setImageClicked(true);
   };
 
+  const cancelHandler = (isCancelled) => {
+    if (isCancelled === true) {
+      setImage("");
+      setImageClicked(false);
+    }
+  };
   const loadGoogleMapScript = (callback) => {
     if (
       typeof window.google === "object" &&
@@ -146,7 +158,7 @@ const DropZone = () => {
   }, [isImageClicked]);
 
   return (
-    <div>
+    <div className="full-screen">
       <div className="split-left left">
         <div className="headline">
           <img src={logo} alt="logo" className="img-responsive align-left" />
@@ -195,6 +207,7 @@ const DropZone = () => {
             loadMap={loadMap}
             suggestedTags={suggestedTags}
             imageId={imageId}
+            cancel={cancelHandler}
           />
         ) : null}
       </div>

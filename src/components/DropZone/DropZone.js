@@ -4,7 +4,6 @@ import logo from "../../Images/logo.png";
 
 import "./DropZone.css";
 import ImageDetails from "../ImageDetails/ImageDetails";
-const GOOGLE_MAP_API_KEY = "AIzaSyDWFGqZflQ_Plrv-QJ0tubTKCp-OyaWvME";
 
 const DropZone = () => {
   const fileInputRef = useRef();
@@ -118,7 +117,7 @@ const DropZone = () => {
       formData.append("key", "");
 
       const res = await axios
-        .post("http://localhost:4000/tags/image", formData)
+        .post(`${apiUrl}/tags/image`, formData)
         .catch(() => {
           console.log("error");
         });

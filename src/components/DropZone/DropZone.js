@@ -142,6 +142,7 @@ const DropZone = () => {
     if (isImageClicked === true) {
       uploadImagetoGetTags();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isImageClicked]);
 
   return (

@@ -89,7 +89,7 @@ export default function ImageDetails({ loadMap, suggestedTags, imageId }) {
     <div className="image-details">
       <h4> 1 foto geselcteerd op te bewerken</h4>
       <form>
-        <label for="title">
+        <label htmlFor="title">
           <span className="align-left">Titel</span>
           <span className=" align-right">?</span>
         </label>{" "}
@@ -103,7 +103,7 @@ export default function ImageDetails({ loadMap, suggestedTags, imageId }) {
           placeholder="Vul een passende titel in voor deze foto"
         />
         <br />
-        <label for="description">Gebruikersnaam</label>
+        <label htmlFor="description">Gebruikersnaam</label>
         <br />
         <input
           value={description}
@@ -119,11 +119,11 @@ export default function ImageDetails({ loadMap, suggestedTags, imageId }) {
           <div>Loading...</div>
         ) : (
           <div>
-            <label for="location">Locatie</label>
+            <label htmlFor="location">Locatie</label>
             <br />
             <input
               ref={placeInputRef}
-              value={place ? place.address : place}
+              value={place ? place.address : undefined}
               name="location"
               type="text"
               required
@@ -132,7 +132,7 @@ export default function ImageDetails({ loadMap, suggestedTags, imageId }) {
             <br />
           </div>
         )}
-        <label for="tags">Tags</label>
+        <label htmlFor="tags">Tags</label>
         <br />
         <div className="tags-input">
           <ul className="tags">
@@ -175,7 +175,7 @@ export default function ImageDetails({ loadMap, suggestedTags, imageId }) {
             </ul>
           </div>
         </div>
-        <label for="category">Category</label>
+        <label htmlFor="category">Category</label>
         <br />
         <select
           name="category"

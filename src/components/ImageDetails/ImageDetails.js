@@ -13,7 +13,7 @@ export default function ImageDetails({ loadMap, suggestedTags, imageId }) {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const handleSubmit = async () => {
     const res = await axios
-      .post("http://localhost:4000/image", {
+      .post(`${apiUrl}/image`, {
         title,
         description,
         tags,
@@ -44,7 +44,7 @@ export default function ImageDetails({ loadMap, suggestedTags, imageId }) {
 
   useEffect(() => {
     async function fetchData() {
-      const response = await axios("http://localhost:4000/category");
+      const response = await axios(`${apiUrl}/category`);
       setCategories(response.data); // ...
     }
     fetchData();
